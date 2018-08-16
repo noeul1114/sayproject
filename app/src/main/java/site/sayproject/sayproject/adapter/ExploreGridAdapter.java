@@ -1,6 +1,7 @@
 package site.sayproject.sayproject.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,8 @@ public class ExploreGridAdapter extends RecyclerView.Adapter<ExploreGridAdapter.
     private Context ctx;
     private OnItemClickListener mOnItemClickListener;
 
+    private int lastPosition = -1;
+
     public interface OnItemClickListener {
         void onItemClick(View view, Feed obj, int position);
     }
@@ -33,12 +36,12 @@ public class ExploreGridAdapter extends RecyclerView.Adapter<ExploreGridAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public ImageView image;
-        public MaterialRippleLayout lyt_parent;
+        public CardView card_view;
 
         public ViewHolder(View v) {
             super(v);
             image = (ImageView) v.findViewById(R.id.image);
-            lyt_parent = (MaterialRippleLayout) v.findViewById(R.id.lyt_parent);
+            card_view = (CardView) v.findViewById(R.id.card_view);
         }
 
     }
@@ -63,7 +66,7 @@ public class ExploreGridAdapter extends RecyclerView.Adapter<ExploreGridAdapter.
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final Feed p = items.get(position);
         holder.image.setImageResource(p.getPhoto());
-        holder.lyt_parent.setOnClickListener(new View.OnClickListener() {
+        holder.card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mOnItemClickListener != null) {

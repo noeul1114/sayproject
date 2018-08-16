@@ -36,13 +36,15 @@ local.properties
 .idea/modules.xml
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
-*.iml
+#*.iml
 
 # OS-specific files
-.DS_Store
+#.DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+initial_warning_for_template.txt

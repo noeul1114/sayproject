@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -30,6 +31,9 @@ import java.util.List;
 public class PageProfileFragment extends Fragment {
     private View view;
     private RecyclerView recyclerView;
+    private RecyclerView mrecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private ExploreGridAdapter mGridAdapter;
     private FeedListAdapter mListAdapter;
     private List<Feed> items = new ArrayList<>();
@@ -47,12 +51,16 @@ public class PageProfileFragment extends Fragment {
     }
 
     private void switchGridMode() {
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), Tools.getGridExplorerCount(getActivity()));
-        layoutManager.setAutoMeasureEnabled(true);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setPadding(2, 2, 2, 2);
+//        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), Tools.getGridExplorerCount(getActivity()));
+//        layoutManager.setAutoMeasureEnabled(true);
+//        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setPadding(20, 20, 20, 20);
 
         //set data and list adapter
+        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        mLayoutManager.setAutoMeasureEnabled(true);
+        recyclerView.setLayoutManager(mLayoutManager);
+
         mGridAdapter = new ExploreGridAdapter(getActivity(), items);
         recyclerView.setAdapter(mGridAdapter);
         mGridAdapter.setOnItemClickListener(new ExploreGridAdapter.OnItemClickListener() {
@@ -64,9 +72,14 @@ public class PageProfileFragment extends Fragment {
     }
 
     private void switchListMode() {
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
-        layoutManager.setAutoMeasureEnabled(true);
-        recyclerView.setLayoutManager(layoutManager);
+//        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
+//        layoutManager.setAutoMeasureEnabled(true);
+//        recyclerView.setLayoutManager(layoutManager);
+
+        mLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        mLayoutManager.setAutoMeasureEnabled(true);
+        recyclerView.setLayoutManager(mLayoutManager);
+
         recyclerView.setPadding(0, 0, 0, 0);
         recyclerView.setNestedScrollingEnabled(false);
 

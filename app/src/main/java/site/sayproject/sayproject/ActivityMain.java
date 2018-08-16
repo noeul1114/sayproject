@@ -94,6 +94,7 @@ public class ActivityMain extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+//
     private void setupTabIcons() {
         tabLayout.getTabAt(0).setIcon(imageResId[0]);
         tabLayout.getTabAt(1).setIcon(imageResId[1]);

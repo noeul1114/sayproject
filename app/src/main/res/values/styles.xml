@@ -1,11 +1,11 @@
 <resources>
 
-    <style name="AppTheme" parent="BaseTheme"/>
+    <style name="AppTheme" parent="BaseTheme" />
 
     <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item> 
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item> 
-        <item name="colorControlHighlight">@color/colorAccentLight</item> 
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/colorAccentLight</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!--control color-->
         <!--<item name="colorControlNormal">@color/colorPrimary</item>-->
@@ -30,9 +30,11 @@
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">5</item>
     </style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="colorControlNormal">@android:color/white</item>
     </style>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Widget.CardContent" parent="android:Widget">
@@ -73,6 +75,7 @@
         <item name="android:textStyle">bold</item>
         <item name="textAllCaps">true</item>
     </style>
+
     <style name="RippleStyleWhite">
         <item name="mrl_rippleOverlay">true</item>
         <item name="mrl_rippleColor">#80FFFFFF</item>
@@ -80,6 +83,7 @@
         <item name="mrl_rippleHover">true</item>
         <item name="mrl_rippleAlpha">0.2</item>
     </style>
+
     <style name="RippleStyleBlack" parent="RippleStyleWhite">
         <item name="mrl_rippleColor">#8096989A</item>
     </style>

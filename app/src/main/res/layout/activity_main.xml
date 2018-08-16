@@ -36,9 +36,12 @@
                         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/name_logo" />
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_width="106dp"
+                            android:layout_height="23dp"
+                            android:background="@drawable/name_logo"
+                            android:cropToPadding="false" />
                     </android.support.v7.widget.Toolbar>
 
                 </FrameLayout>

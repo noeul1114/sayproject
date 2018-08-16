@@ -20,6 +20,7 @@
     <string name="tab_notif">Notifications</string>
     <string name="tab_profile">Profile</string>
     <string name="avatar_source">http://www.designskilz.com/</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 
 </resources>

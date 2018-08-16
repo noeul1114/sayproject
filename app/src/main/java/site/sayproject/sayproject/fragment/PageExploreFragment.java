@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,6 +29,9 @@ public class PageExploreFragment extends Fragment {
 
     private View view;
     private RecyclerView recyclerView;
+    private RecyclerView mrecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private ExploreGridAdapter mGridAdapter;
     private FeedListAdapter mListAdapter;
     private GlobalVariable global;
@@ -45,6 +49,7 @@ public class PageExploreFragment extends Fragment {
         global = (GlobalVariable) getActivity().getApplication();
         items = Constant.getRandomExploreFeed(getActivity());
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+
         if (global.isGrid_mode()) {
             switchGridMode();
         } else {
@@ -54,11 +59,14 @@ public class PageExploreFragment extends Fragment {
     }
 
     private void switchGridMode() {
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), Tools.getGridExplorerCount(getActivity())));
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setPadding(2, 2, 2, 2);
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), Tools.getGridExplorerCount(getActivity())));
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setPadding(20, 20, 20, 20);
 
         //set data and list adapter
+        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(mLayoutManager);
+
         mGridAdapter = new ExploreGridAdapter(getActivity(), items);
         recyclerView.setAdapter(mGridAdapter);
         mGridAdapter.setOnItemClickListener(new ExploreGridAdapter.OnItemClickListener() {
@@ -73,8 +81,8 @@ public class PageExploreFragment extends Fragment {
     }
 
     private void switchListMode() {
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setHasFixedSize(false);
         recyclerView.setPadding(0, 0, 0, 0);
         recyclerView.scrollToPosition(selected_pos);
 
